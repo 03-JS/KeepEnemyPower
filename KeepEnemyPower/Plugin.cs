@@ -3,11 +3,6 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
 using KeepEnemyPower.Patches;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KeepEnemyPower
 {
@@ -16,7 +11,7 @@ namespace KeepEnemyPower
     {
         private const string modGUID = "JS03.KeepEnemyPower";
         private const string modName = "Keep Enemy Power";
-        private const string modVersion = "1.0.0";
+        private const string modVersion = "1.0.1";
 
         // Config values
         public static ConfigEntry<bool> keepIndoorsPower;

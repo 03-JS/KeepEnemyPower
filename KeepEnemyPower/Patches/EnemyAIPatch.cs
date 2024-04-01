@@ -1,10 +1,4 @@
 ﻿using HarmonyLib;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 
 namespace KeepEnemyPower.Patches
 {
@@ -42,7 +36,7 @@ namespace KeepEnemyPower.Patches
                     if (Plugin.keepOutdoorsPower.Value)
                     {
                         ___removedPowerLevel = false;
-                        RoundManager.Instance.currentDaytimeEnemyPower = Mathf.Max(RoundManager.Instance.currentDaytimeEnemyPower + __instance.enemyType.PowerLevel, 0);
+                        RoundManager.Instance.currentDaytimeEnemyPower = RoundManager.Instance.currentDaytimeEnemyPower + __instance.enemyType.PowerLevel;
                     }
                     Plugin.LogToConsole("Current Daytime Enemy Power -> " + RoundManager.Instance.currentDaytimeEnemyPower);
                     return;
@@ -52,7 +46,7 @@ namespace KeepEnemyPower.Patches
                     if (Plugin.keepOutdoorsPower.Value)
                     {
                         ___removedPowerLevel = false;
-                        RoundManager.Instance.currentOutsideEnemyPower = Mathf.Max(RoundManager.Instance.currentOutsideEnemyPower + __instance.enemyType.PowerLevel, 0);
+                        RoundManager.Instance.currentOutsideEnemyPower = RoundManager.Instance.currentOutsideEnemyPower + __instance.enemyType.PowerLevel;
                     }
                     Plugin.LogToConsole("Current Outside Enemy Power -> " + RoundManager.Instance.currentOutsideEnemyPower);
                     return;
@@ -61,7 +55,7 @@ namespace KeepEnemyPower.Patches
                 {
                     ___removedPowerLevel = false;
                     // RoundManager.Instance.cannotSpawnMoreInsideEnemies = true;
-                    RoundManager.Instance.currentEnemyPower = Mathf.Max(RoundManager.Instance.currentEnemyPower + __instance.enemyType.PowerLevel, 0);
+                    RoundManager.Instance.currentEnemyPower = RoundManager.Instance.currentEnemyPower + __instance.enemyType.PowerLevel;
                 }
                 Plugin.LogToConsole("Current Inside Enemy Power -> " + RoundManager.Instance.currentEnemyPower);
             }
