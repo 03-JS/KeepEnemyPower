@@ -14,15 +14,15 @@ namespace KeepEnemyPower.Patches
             {
                 if (__instance.enemyType.isDaytimeEnemy)
                 {
-                    Plugin.LogToConsole("Previous Daytime Enemy Power -> " + RoundManager.Instance.currentDaytimeEnemyPower);
+                    Plugin.mls.LogInfo("Previous Daytime Enemy Power -> " + RoundManager.Instance.currentDaytimeEnemyPower);
                     return;
                 }
                 if (__instance.isOutside)
                 {
-                    Plugin.LogToConsole("Previous Outside Enemy Power -> " + RoundManager.Instance.currentOutsideEnemyPower);
+                    Plugin.mls.LogInfo("Previous Outside Enemy Power -> " + RoundManager.Instance.currentOutsideEnemyPower);
                     return;
                 }
-                Plugin.LogToConsole("Previous Inside Enemy Power -> " + RoundManager.Instance.currentEnemyPower);
+                Plugin.mls.LogInfo("Previous Inside Enemy Power -> " + RoundManager.Instance.currentEnemyPower);
             }
         }
 
@@ -39,7 +39,7 @@ namespace KeepEnemyPower.Patches
                         ___removedPowerLevel = false;
                         RoundManager.Instance.currentDaytimeEnemyPower = Mathf.Max(RoundManager.Instance.currentDaytimeEnemyPower + __instance.enemyType.PowerLevel, 0);
                     }
-                    Plugin.LogToConsole("Current Daytime Enemy Power -> " + RoundManager.Instance.currentDaytimeEnemyPower);
+                    Plugin.mls.LogInfo("Current Daytime Enemy Power -> " + RoundManager.Instance.currentDaytimeEnemyPower);
                     return;
                 }
                 if (__instance.isOutside)
@@ -49,7 +49,7 @@ namespace KeepEnemyPower.Patches
                         ___removedPowerLevel = false;
                         RoundManager.Instance.currentOutsideEnemyPower = Mathf.Max(RoundManager.Instance.currentOutsideEnemyPower + __instance.enemyType.PowerLevel, 0);
                     }
-                    Plugin.LogToConsole("Current Outside Enemy Power -> " + RoundManager.Instance.currentOutsideEnemyPower);
+                    Plugin.mls.LogInfo("Current Outside Enemy Power -> " + RoundManager.Instance.currentOutsideEnemyPower);
                     return;
                 }
                 if (Plugin.keepIndoorsPower.Value)
@@ -58,7 +58,7 @@ namespace KeepEnemyPower.Patches
                     // RoundManager.Instance.cannotSpawnMoreInsideEnemies = true;
                     RoundManager.Instance.currentEnemyPower = Mathf.Max(RoundManager.Instance.currentEnemyPower + __instance.enemyType.PowerLevel, 0);
                 }
-                Plugin.LogToConsole("Current Inside Enemy Power -> " + RoundManager.Instance.currentEnemyPower);
+                Plugin.mls.LogInfo("Current Inside Enemy Power -> " + RoundManager.Instance.currentEnemyPower);
             }
         }
     }

@@ -11,7 +11,7 @@ namespace KeepEnemyPower
     {
         private const string modGUID = "JS03.KeepEnemyPower";
         private const string modName = "Keep Enemy Power";
-        private const string modVersion = "1.0.64";
+        private const string modVersion = "1.0.81";
 
         // Config values
         public static ConfigEntry<bool> keepIndoorsPower;
@@ -24,7 +24,7 @@ namespace KeepEnemyPower
         void Awake()
         {
             mls = BepInEx.Logging.Logger.CreateLogSource(modGUID);
-            mls.LogInfo("Keep Enemy Power is now active");
+            mls.LogInfo("Keep Enemy Power active");
 
             // EnemyAIPatch.AssignValues();
 
@@ -38,31 +38,15 @@ namespace KeepEnemyPower
                 "General", // Config section
                 "Keep Indoors Power", // Key of this config
                 true, // Default value
-                "Keeps the indoors enemy power when an indoor enemy dies" // Description
+                "Keeps the indoor enemy power when an indoor enemy dies" // Description
             );
 
             keepOutdoorsPower = Config.Bind(
                 "General", // Config section
                 "Keep Outdoors Power", // Key of this config
                 true, // Default value
-                "Keeps the outdoors enemy power when an outdoor enemy dies" // Description
+                "Keeps the outdoor enemy power when an outdoor enemy dies" // Description
             );
-        }
-
-        public static void LogToConsole(string message, string logType = "")
-        {
-            switch (logType.ToLower())
-            {
-                case "warn":
-                    mls.LogWarning(message);
-                    break;
-                case "error":
-                    mls.LogError(message);
-                    break;
-                default:
-                    mls.LogInfo(message);
-                    break;
-            }
         }
     }
 }
